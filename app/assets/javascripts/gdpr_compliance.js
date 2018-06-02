@@ -1,6 +1,6 @@
-class GDPRCompliance {
-  //constructor() {}
+//= require js.cookie
 
+class GDPRCompliance {
   static get COMPLIANCE_COOKIES() {
     return [
       "gdpr_compliance_necessary",

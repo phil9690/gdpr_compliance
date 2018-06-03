@@ -76,7 +76,7 @@ class turbolinkHandler {
   }
 }
 
-var tl = new turboLinkHandler();
+var tl = new turbolinkHandler();
 
 var runGdprCompliance = function() {
   var gdprCompliance = new GDPRCompliance();

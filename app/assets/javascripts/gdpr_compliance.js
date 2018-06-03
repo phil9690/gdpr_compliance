@@ -76,7 +76,7 @@ class turbolinkHandler {
   }
 }
 
-var turbolinkHandler = new turboLinkHandler();
+var tl = new turboLinkHandler();
 
 var runGdprCompliance = function() {
   var gdprCompliance = new GDPRCompliance();
@@ -86,7 +86,7 @@ var runGdprCompliance = function() {
   }
 };
 
-document.addEventListener(turbolinkHandler.eventName("DOMContentLoaded"), function() {
+document.addEventListener(tl.eventName("DOMContentLoaded"), function() {
 	runGdprCompliance();
 });
 

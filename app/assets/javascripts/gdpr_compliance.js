@@ -48,7 +48,6 @@ class GDPRCompliance {
 
     for (var i = 0; i < COOKIES.length; i++) {
       let cookieId = "#" + COOKIES[i];
-      alert(cookieId);
 
       Cookies.set(COOKIES[i], document.querySelector(cookieId).checked, {
 				path: '/',
@@ -67,8 +66,19 @@ class GDPRCompliance {
   }
 }
 
+class turbolinkHandler() {
+	pageHasTurbolinks() {
+		return 'Turbolinks' in window;
+	}
+
+	eventName(fallback) {
+  	return self.pageHasTurbolinks() ? 'turbolinks:load' : fallback
+  }
+}
+
+var turbolinkHandler = new turboLinkHandler();
+
 var runGdprCompliance = function() {
-	debugger
   var gdprCompliance = new GDPRCompliance();
 
   if (Object.keys(gdprCompliance.gdprCookies()).length === 0) {
@@ -76,7 +86,8 @@ var runGdprCompliance = function() {
   }
 };
 
-document.addEventListener("DOMContentLoaded", function() {
-  runGdprCompliance();
+document.addEventListener(turbolinkHandler.eventName("DOMContentLoaded"), function() {
+	runGdprCompliance();
 });
+
 

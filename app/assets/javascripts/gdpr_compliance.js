@@ -66,7 +66,7 @@ class GDPRCompliance {
   }
 }
 
-class turbolinkHandler() {
+class turbolinkHandler {
 	pageHasTurbolinks() {
 		return 'Turbolinks' in window;
 	}

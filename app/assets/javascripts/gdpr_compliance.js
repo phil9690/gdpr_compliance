@@ -13,7 +13,7 @@ class GDPRCompliance {
     var cookies = Cookies.get();
 
     Object.keys(cookies).forEach(function(key) {
-      var compliance_cookie = this.COMPLIANCE_COOKIES.indexOf(key) > -1;
+      var compliance_cookie = GDPRCompliance.COMPLIANCE_COOKIES.indexOf(key) > -1;
       if (!compliance_cookie === true) {
         delete cookies[key];
       }
@@ -54,11 +54,11 @@ class GDPRCompliance {
 				path: '/',
 				expires: 365
 			});
-    }
+		}
 
     var container = document.getElementById("gdpr_compliance_banner");
     container.parentNode.removeChild(container);
-  }
+	}
 
   showGdprBanner() {
     var gdprCookiesBanner = document.getElementById("gdpr_compliance_banner");

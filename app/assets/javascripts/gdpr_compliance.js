@@ -50,7 +50,10 @@ class GDPRCompliance {
       let cookieId = "#" + COOKIES[i];
       alert(cookieId);
 
-      Cookies.set(COOKIES[i], document.querySelector(cookieId).checked);
+      Cookies.set(COOKIES[i], document.querySelector(cookieId).checked, {
+				path: '/',
+				expires: 365
+			});
     }
 
     var container = document.getElementById("gdpr_compliance_banner");

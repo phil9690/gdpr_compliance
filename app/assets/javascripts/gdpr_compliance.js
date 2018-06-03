@@ -72,7 +72,7 @@ class turbolinkHandler {
 	}
 
 	eventName(fallback) {
-  	return self.pageHasTurbolinks() ? 'turbolinks:load' : fallback
+  	return this.pageHasTurbolinks() ? 'turbolinks:load' : fallback
   }
 }
 

@@ -1,13 +1,14 @@
 //= require js.cookie
 
 class GDPRCompliance {
-  static get COMPLIANCE_COOKIES() {
-    return [
-      "gdpr_compliance_necessary",
-      "gdpr_compliance_statistics",
-      "gdpr_compliance_marketing"
-    ];
-  }
+	static get COMPLIANCE_COOKIES() {
+		return [
+			"gdpr_compliance_marketing",
+			"gdpr_compliance_necessary",
+			"gdpr_compliance_preferences",
+			"gdpr_compliance_statistics"
+		];
+	}
 
   gdprCookies() {
     var cookies = Cookies.get();
@@ -32,24 +33,20 @@ class GDPRCompliance {
   }
 
   gdprCookiesButtonListen() {
-    var gdprCookiesButton = document.getElementById("gdpr_compliance_btn");
+    var gdprCookiesButton = document.getElementById("gdpr_compliance_button");
 
     if (gdprCookiesButton) {
       this.addListener(gdprCookiesButton);
     }
   }
 
-  setCookies() {
-    const COOKIES = [
-      "gdpr_compliance_necessary",
-      "gdpr_compliance_statistics",
-      "gdpr_compliance_marketing"
-    ];
+	setCookies() {
+		let cookies = GDPRCompliance.COMPLIANCE_COOKIES;
 
-    for (var i = 0; i < COOKIES.length; i++) {
-      let cookieId = "#" + COOKIES[i];
+    for (var i = 0; i < cookies.length; i++) {
+      let cookieId = "#" + cookies[i];
 
-      Cookies.set(COOKIES[i], document.querySelector(cookieId).checked, {
+      Cookies.set(cookies[i], document.querySelector(cookieId).checked, {
 				path: '/',
 				expires: 365
 			});
@@ -76,18 +73,18 @@ class turbolinkHandler {
   }
 }
 
-var tl = new turbolinkHandler();
+//var tl = new turbolinkHandler();
 
-var runGdprCompliance = function() {
-  var gdprCompliance = new GDPRCompliance();
+//var runGdprCompliance = function() {
+//  var gdprCompliance = new GDPRCompliance();
 
-  if (Object.keys(gdprCompliance.gdprCookies()).length === 0) {
-    gdprCompliance.showGdprBanner();
-  }
-};
+//  if (Object.keys(gdprCompliance.gdprCookies()).length === 0) {
+//    gdprCompliance.showGdprBanner();
+//  }
+//};
 
-document.addEventListener(tl.eventName("DOMContentLoaded"), function() {
-	runGdprCompliance();
-});
+//document.addEventListener(tl.eventName("DOMContentLoaded"), function() {
+//	runGdprCompliance();
+//});
 
 

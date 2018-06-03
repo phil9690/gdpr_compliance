@@ -68,6 +68,7 @@ class GDPRCompliance {
 }
 
 var runGdprCompliance = function() {
+	debugger
   var gdprCompliance = new GDPRCompliance();
 
   if (Object.keys(gdprCompliance.gdprCookies()).length === 0) {

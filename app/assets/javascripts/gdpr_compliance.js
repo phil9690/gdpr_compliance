@@ -70,7 +70,7 @@ class GDPRCompliance {
 var runGdprCompliance = function() {
   var gdprCompliance = new GDPRCompliance();
 
-  if (Object.keys(gdprCompliance.gdprCookies).length === 0) {
+  if (Object.keys(gdprCompliance.gdprCookies()).length === 0) {
     gdprCompliance.showGdprBanner();
   }
 };
